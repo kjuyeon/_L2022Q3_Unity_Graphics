@@ -1,4 +1,4 @@
-Shader "My/SurfaceShader/TextureIO"
+Shader "My/Cube_Texture"
 {
     Properties
     {
@@ -21,7 +21,9 @@ Shader "My/SurfaceShader/TextureIO"
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
-            o.Albedo = c.rgb;
+            //o.Albedo = c.rgb;
+            o.Albedo = (c.r + c.g + c.b) / 3;
+            //o.Albedo = 0.5; 
             o.Alpha = c.a;
         }
         ENDCG

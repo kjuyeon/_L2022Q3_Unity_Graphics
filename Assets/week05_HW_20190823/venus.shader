@@ -1,4 +1,4 @@
-Shader "My/SurfaceShader/TextureIO"
+Shader "My/venus"
 {
     Properties
     {
@@ -9,9 +9,10 @@ Shader "My/SurfaceShader/TextureIO"
         Tags { "RenderType"="Opaque" }
 
         CGPROGRAM
-        #pragma surface surf Standard fullforwardshadows
+        #pragma surface surf Standard 
 
         sampler2D _MainTex;
+        float _LerpRange;
 
         struct Input
         {

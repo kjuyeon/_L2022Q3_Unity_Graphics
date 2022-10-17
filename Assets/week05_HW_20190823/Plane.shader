@@ -1,4 +1,4 @@
-Shader "My/SurfaceShader/TextureIO"
+Shader "My/Plane"
 {
     Properties
     {
@@ -20,8 +20,8 @@ Shader "My/SurfaceShader/TextureIO"
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
-            o.Albedo = c.rgb;
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex + _Time.x);
+            o.Emission = c.rgb;
             o.Alpha = c.a;
         }
         ENDCG

@@ -1,4 +1,4 @@
-Shader "My/SurfaceShader/TextureIO"
+Shader "My/Sphere2"
 {
     Properties
     {
@@ -9,7 +9,8 @@ Shader "My/SurfaceShader/TextureIO"
         Tags { "RenderType"="Opaque" }
 
         CGPROGRAM
-        #pragma surface surf Standard fullforwardshadows
+        // #pragma surface surf Standard fullforwardshadows // <-- fullforwardshadows ����
+        #pragma surface surf Standard 
 
         sampler2D _MainTex;
 
@@ -21,7 +22,7 @@ Shader "My/SurfaceShader/TextureIO"
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
-            o.Albedo = c.rgb;
+            o.Albedo = (c.r + c.g + c.b)/3;
             o.Alpha = c.a;
         }
         ENDCG

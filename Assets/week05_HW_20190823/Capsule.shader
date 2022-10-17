@@ -1,4 +1,4 @@
-Shader "My/SurfaceShader/TextureIO"
+Shader "My/Capsule"
 {
     Properties
     {
@@ -20,7 +20,7 @@ Shader "My/SurfaceShader/TextureIO"
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex + _Time.y);
             o.Albedo = c.rgb;
             o.Alpha = c.a;
         }
